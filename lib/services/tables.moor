@@ -1,0 +1,12 @@
+
+
+
+CREATE VIRTUAL TABLE todos USING fts5(name,content);
+
+
+todoscol: SELECT * FROM todos;
+
+createEntry: INSERT INTO todos (name, content) VALUES (:name, :content);
+
+
+featuresWithFts5: SELECT * FROM todos WHERE todos MATCH 'fts5' ORDER BY rank;
